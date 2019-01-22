@@ -1,0 +1,9 @@
+[
+  {
+    "artifact": "frcJava",
+    "target": "roborio",
+    "debugfile": "frcJava_roborio.debugconfig",
+    "project": "Arcade_Drive_VictorSPX",
+    "language": "java"
+  }
+]
