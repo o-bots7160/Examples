@@ -3,7 +3,7 @@ Examples of basic drivetrains, Auton, I2C with arduino, wiring
 
 
 
-## Speed Controller naming conventions and configurations for Differential drive
+## Speed Controller naming conventions and configurations for Differential drive and Mecanum
 ```java
 // Talons:
 WPI_TalonSRX _rghtFront = new WPI_TalonSRX(1); // Masters are single digits
@@ -20,6 +20,11 @@ WPI_VictorSPX _leftFollower = new WPI_VictorSPX(20);
 // Diff drive
 DifferentialDrive _diffDrive = new DifferentialDrive(_leftFront, _rghtFront); // Main controllers go in the drive
 //
-// This portion goes into your ro
-
+// This portion goes into your robotInit or other
+_rghtFront.configFactoryDefault();
+_rghtFollower.configFactoryDefault();
+_leftFront.configFactoryDefault();
+_leftFollower.configFactoryDefault();
+_rghtFollower.follow(_rghtFront);
+_leftFollower.follow(_leftFront);
 ```
