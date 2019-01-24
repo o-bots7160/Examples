@@ -35,9 +35,10 @@ _rghtFollower.follow(_rghtFront);
 _leftFollower.follow(_leftFront);
 //
 
-/* Differential drive is special and such has two modes */
+/* Differential drive is special and has two modes. Arcade and Tank */
 // Arcade drive uses one joystick and looks for the Y and Z values from it. Y is forward/back. Z is Rotation
 _diffDrive.arcadeDrive(_joystick.getY(), _joystick.getZ());
+
 // Tank drive uses two sticks on a single joystick or two seperate joysticks
 // Single Joystick. Y is forward/back left motors. Z is forward/back for right motors. 
 _diffDrive.tankDrive((_joystick1.getY(), joystick1.getZ());
