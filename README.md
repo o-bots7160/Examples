@@ -34,8 +34,8 @@ _leftFollower.configFactoryDefault();
 _rghtFollower.follow(_rghtFront);
 _leftFollower.follow(_leftFront);
 //
-/* Differential drive is special and such has to modes */
-// Arcade drive uses one stick and looks for the x and y values from it. You enter this int
+/* Differential drive is special and such has two modes */
+// Arcade drive uses one stick and looks for the x and z values from it. 
 
 // Differential Drive End//
 
