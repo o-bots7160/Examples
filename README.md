@@ -1,5 +1,5 @@
 # Examples
-Examples of basic drivetrains, Auton, I2C with arduino, wiring
+Examples of basic drivetrains, Auton (WPI), I2C with arduino (WPI), wiring (WPI)
 
 
 
