@@ -10,10 +10,10 @@ import edu.wpi.first.wpilibj.TimedRobot;
 
 public class Robot extends TimedRobot {
   //**    Type                  varName                PORT ID
-      WPI_TalonSRX           _rghtFront      = new WPI_TalonSRX(1);
-      WPI_TalonSRX           _rghtFollower   = new WPI_TalonSRX(10);
-      WPI_TalonSRX           _leftFront      = new WPI_TalonSRX(2);
-      WPI_TalonSRX           _leftFollower   = new WPI_TalonSRX(20);
+      WPI_TalonSRX           _rghtFront      = new WPI_TalonSRX(10);
+      WPI_TalonSRX           _rghtFollower   = new WPI_TalonSRX(11);
+      WPI_TalonSRX           _leftFront      = new WPI_TalonSRX(20);
+      WPI_TalonSRX           _leftFollower   = new WPI_TalonSRX(21);
 
       Joystick                _joystick1      = new Joystick(0);
 

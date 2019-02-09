@@ -16,10 +16,10 @@ import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 public class Robot extends TimedRobot {
 
-  WPI_VictorSPX _rghtFront = new WPI_VictorSPX(1); // Masters are single digits
-  WPI_VictorSPX _rghtBack = new WPI_VictorSPX(10); // Back motors are the same id as the master but with a 0 added
-  WPI_VictorSPX _leftFront = new WPI_VictorSPX(2);
-  WPI_VictorSPX _leftBack = new WPI_VictorSPX(20);
+  WPI_VictorSPX _rghtFront = new WPI_VictorSPX(10); // Masters are single digits
+  WPI_VictorSPX _rghtBack = new WPI_VictorSPX(11); // Back motors are the same id as the master but with a 0 added
+  WPI_VictorSPX _leftFront = new WPI_VictorSPX(20);
+  WPI_VictorSPX _leftBack = new WPI_VictorSPX(21);
 
   MecanumDrive mainDrive = new MecanumDrive(_leftFront, _leftBack, _rghtFront, _rghtBack);
 

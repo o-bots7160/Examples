@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 
 public class Robot extends TimedRobot {
-  WPI_VictorSPX _rghtFront = new WPI_VictorSPX(1);
-  WPI_VictorSPX _rghtFollower = new WPI_VictorSPX(10);
-  WPI_VictorSPX _leftFront = new WPI_VictorSPX(2);
-  WPI_VictorSPX _leftFollower = new WPI_VictorSPX(20);
+  WPI_VictorSPX _rghtFront = new WPI_VictorSPX(10);
+  WPI_VictorSPX _rghtFollower = new WPI_VictorSPX(11);
+  WPI_VictorSPX _leftFront = new WPI_VictorSPX(20);
+  WPI_VictorSPX _leftFollower = new WPI_VictorSPX(21);
 
   DifferentialDrive _diffDrive = new DifferentialDrive(_leftFront, _rghtFront);
 
