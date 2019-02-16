@@ -12,8 +12,8 @@ Joystick _joystick = new Joystick(0);
 // Differential Drive Start //
 
 // Talons 
-WPI_TalonSRX _rghtFront = new WPI_TalonSRX(10); // Masters are single digits
-WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(11); // Followers are the same id as the master but with a 0 added
+WPI_TalonSRX _rghtFront = new WPI_TalonSRX(10); // Masters are increments of 10,
+WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(11); // Followers will have the same tenths place but the second value is 1-9
 WPI_TalonSRX _leftFront = new WPI_TalonSRX(20);
 WPI_TalonSRX _leftFollower = new WPI_TalonSRX(21);
 //
