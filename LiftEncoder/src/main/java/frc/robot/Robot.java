@@ -34,13 +34,22 @@ public class Robot extends TimedRobot {
 
   Joystick _joy = new Joystick(0);
 
+  int step2 = 1;
+
+  enum getToBottomModes{
+    SETBOTTOMPOINT, TURNLIFTOFF
+  }
+
+  getToBottomModes modes;
+
   @Override
   public void teleopInit() {
     reset();
     step = 1;
     liftPID.setOutputRange(-0.3, 0.5);
-
+    liftPID.setSetpoint(0);
     liftPID.disable();
+    modes = getToBottomModes.SETBOTTOMPOINT;
   }
 
   int step = 1;
@@ -60,21 +69,39 @@ public class Robot extends TimedRobot {
       liftPID.disable();
       _lift.set(-.3);
       liftPID.setSetpoint(_lift.getSelectedSensorPosition(0));
-    }else{
-      switch(step){
-        case 1:
-        liftPID.disable();
-          _lift.set(0);
-          if(_joy.getRawButtonPressed(5))
-            step++;
-          break;
-        case 2:
-          liftPID.enable();
-          if(_joy.getRawButtonPressed(5))
-            step--;
-          break;
-      }
+    // Ball panel heights
+    }else if(_joy.getRawButton(3)){
+      liftPID.setSetpoint(-7082);
+    }else if(_joy.getRawButton(4)){
+      liftPID.setSetpoint(-17045);
+    }else if(_joy.getRawButton(6)){
+      liftPID.setSetpoint(-26330);
+    // Hatch height
+    }else if(_joy.getRawButton(9)){
+      goToBottom();
+    }else if(_joy.getRawButton(10)){
+      liftPID.setSetpoint(-10200);
+    }else if(_joy.getRawButton(11)){
+      liftPID.setSetpoint(-20117);
+    // Ball height for cargo ship
+    }else if(_joy.getRawButton(12)){
+      // idk yet
     }
+    else{
+        switch(step){
+          case 1:
+          liftPID.disable();
+            _lift.set(0);
+            if(_joy.getRawButtonPressed(5))
+              step++;
+            break;
+          case 2:
+            liftPID.enable();
+            if(_joy.getRawButtonPressed(5))
+              step--;
+            break;
+        }
+      }
 
   }
 
@@ -85,7 +112,21 @@ public class Robot extends TimedRobot {
   void reset() {
 		_lift.getSensorCollection().setPulseWidthPosition(0, 100);
 		_lift.getSensorCollection().setQuadraturePosition(0, 100);
-	}
+  }
+  
+  void goToBottom(){
+    switch(modes){
+      case SETBOTTOMPOINT:
+        liftPID.setSetpoint(-1000);
+        modes = getToBottomModes.TURNLIFTOFF;
+        break;
+      case TURNLIFTOFF:
+        if(_lift.getSelectedSensorPosition(0)<-1100)
+          step = 1;
+          liftPID.disable();
+        break;
+    }
+  }
 
 }
 
