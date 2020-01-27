@@ -13,26 +13,26 @@ Joystick _joystick = new Joystick(0);
 
 // Talons 
 WPI_TalonSRX _rghtFront = new WPI_TalonSRX(10); // Masters are increments of 10,
-WPI_TalonSRX _rghtFollower = new WPI_TalonSRX(11); // Followers will have the same tenths place but the second value is 1-9
+WPI_TalonSRX _rghtFoll1 = new WPI_TalonSRX(11); // Followers will have the same tenths place but the second value is 1-9
 WPI_TalonSRX _leftFront = new WPI_TalonSRX(20);
-WPI_TalonSRX _leftFollower = new WPI_TalonSRX(21);
+WPI_TalonSRX _leftFoll1 = new WPI_TalonSRX(21);
 //
 // Victors
 WPI_VictorSPX _rghtFront = new WPI_VictorSPX(10);
-WPI_VictorSPX _rghtFollower = new WPI_VictorSPX(11);
+WPI_VictorSPX _rghtFoll1 = new WPI_VictorSPX(11);
 WPI_VictorSPX _leftFront = new WPI_VictorSPX(21);
-WPI_VictorSPX _leftFollower = new WPI_VictorSPX(21);
+WPI_VictorSPX _leftFoll1 = new WPI_VictorSPX(21);
 //
 // Diff drive
 DifferentialDrive _diffDrive = new DifferentialDrive(_leftFront, _rghtFront); // Main controllers go in the drive
 //
 // This portion goes into your robotInit or other
 _rghtFront.configFactoryDefault();
-_rghtFollower.configFactoryDefault();
+_rghtFoll1.configFactoryDefault();
 _leftFront.configFactoryDefault();
-_leftFollower.configFactoryDefault();
-_rghtFollower.follow(_rghtFront);
-_leftFollower.follow(_leftFront);
+_leftFoll1.configFactoryDefault();
+_rghtFoll1.follow(_rghtFront);
+_leftFoll1.follow(_leftFront);
 //
 
 /* Differential drive is special and has two modes. Arcade and Tank */
@@ -50,16 +50,16 @@ _diffDrive.tankDrive((_joystick1.getY(), _joystick2.getY());// Two Joysticks
 // Mecanum Drive Start //
 
 // Talons
-WPI_TalonSRX _rghtFront = new WPI_TalonSRX(1); // Masters are single digits
-WPI_TalonSRX _rghtBack = new WPI_TalonSRX(10); // Back motors are the same id as the master but with a 0 added
-WPI_TalonSRX _leftFront = new WPI_TalonSRX(2);
-WPI_TalonSRX _leftBack = new WPI_TalonSRX(20);
+WPI_TalonSRX _rghtFront = new WPI_TalonSRX(10); // Mecanum doesn't have master follower-IDS are 10's for right side
+WPI_TalonSRX _rghtBack = new WPI_TalonSRX(11); // back motors are 1 digit behind front motors
+WPI_TalonSRX _leftFront = new WPI_TalonSRX(20); // Left motors are 20's
+WPI_TalonSRX _leftBack = new WPI_TalonSRX(21);
 //
 // Victors
-WPI_VictorSPX _rghtFront = new WPI_VictorSPX(1);
-WPI_VictorSPX _rghtBack = new WPI_VictorSPX(10);
-WPI_VictorSPX _leftFront = new WPI_VictorSPX(2);
-WPI_VictorSPX _leftBack = new WPI_VictorSPX(20);
+WPI_VictorSPX _rghtFront = new WPI_VictorSPX(10);
+WPI_VictorSPX _rghtBack = new WPI_VictorSPX(11);
+WPI_VictorSPX _leftFront = new WPI_VictorSPX(20);
+WPI_VictorSPX _leftBack = new WPI_VictorSPX(21);
 //
 // Mecanum Drive
 MecanumDrive mainDrive = new MecanumDrive(_leftFront, _leftBack, _rghtFront, _rghtBack);
