@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 
 public class Robot extends TimedRobot {
   WPI_VictorSPX _rghtFront = new WPI_VictorSPX(10);
-  WPI_VictorSPX _rghtFollower = new WPI_VictorSPX(11);
+  WPI_VictorSPX _rghtFoll1 = new WPI_VictorSPX(11);
   WPI_VictorSPX _leftFront = new WPI_VictorSPX(20);
-  WPI_VictorSPX _leftFollower = new WPI_VictorSPX(21);
+  WPI_VictorSPX _leftFoll1 = new WPI_VictorSPX(21);
 
   DifferentialDrive _diffDrive = new DifferentialDrive(_leftFront, _rghtFront);
 
@@ -21,12 +21,12 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     _rghtFront.configFactoryDefault();
-    _rghtFollower.configFactoryDefault();
+    _rghtFoll1.configFactoryDefault();
     _leftFront.configFactoryDefault();
-    _leftFollower.configFactoryDefault();
+    _leftFoll1.configFactoryDefault();
 
-    _rghtFollower.follow(_rghtFront);
-    _leftFollower.follow(_leftFront);
+    _rghtFoll1.follow(_rghtFront);
+    _leftFoll1.follow(_leftFront);
   }
 
   @Override
